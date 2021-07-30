@@ -1,4 +1,4 @@
-module github/MasEo9/go-rest-api-course
+module github/MasEo9/production-ready-api
 
 go 1.16
 
