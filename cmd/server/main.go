@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	transportHTTP "github.com/MasEo9/go-rest-api-course/internal/transport/http"
+	transportHTTP "github.com/MasEo9/production-ready-api/internal/transport/http"
 )
 
 // App - struct contains pointers to db connections
