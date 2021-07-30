@@ -7,17 +7,19 @@ import (
 	transportHTTP "github.com/MasEo9/production-ready-api/internal/transport/http"
 )
 
-// App - struct contains pointers to db connections
+// App - the struct which contains things like pointers
+// to database connections
 type App struct{}
 
+// Run - sets up our application
 func (app *App) Run() error {
 	fmt.Println("Setting Up Our APP")
 
-	handler = transportHTTP.NewHander()
+	handler := transportHTTP.NewHandler()
 	handler.SetupRoutes()
 
 	if err := http.ListenAndServe(":8080", handler.Router); err != nil {
-		fmt.Println("Failed to setup Server")
+		fmt.Println("Failed to set up server")
 		return err
 	}
 
@@ -29,6 +31,6 @@ func main() {
 	app := App{}
 	if err := app.Run(); err != nil {
 		fmt.Println("Error starting up our REST API")
-		fmt.Print(err)
+		fmt.Println(err)
 	}
 }
