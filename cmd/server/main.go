@@ -1,12 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+
+	transportHTTP "github.com/MasEo9/go-rest-api-course/internal/transport/http"
+)
 
 // App - struct contains pointers to db connections
 type App struct{}
 
-func (app *App) run() error {
+func (app *App) Run() error {
 	fmt.Println("Setting Up Our APP")
+
+	handler = transportHTTP.NewHander()
+	handler.SetupRoutes()
+
+	if err := http.ListenAndServe(":8080", handler.Router); err != nil {
+		fmt.Println("Failed to setup Server")
+		return err
+	}
+
 	return nil
 }
 
