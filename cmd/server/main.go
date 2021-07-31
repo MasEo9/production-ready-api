@@ -18,7 +18,7 @@ func (app *App) Run() error {
 	fmt.Println("Setting Up Our APP")
 
 	var err error
-	_, err = database.NewDatabase()
+	db, err := database.NewDatabase()
 	if err != nil {
 		return err
 	}
